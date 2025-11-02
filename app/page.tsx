@@ -1,9 +1,15 @@
-import React from 'react'
+import BestAudioSection from "@/components/BestAudioSection"
+import CategoryCards from "@/components/CategoryCards"
+import Hero from "@/components/Hero"
+import ProductHighlights from "@/components/ProductHighlights"
 
 const Home = () => {
   return (
-    <div className='min-h-[1200px]'>
-      home
+    <div>
+      <Hero/>
+      <CategoryCards/>
+      <ProductHighlights/>
+      <BestAudioSection/>
     </div>
   )
 }

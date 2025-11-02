@@ -25,11 +25,10 @@ export default function RootLayout({
       <body
         className={`${manrope.variable} bg-white text-black antialiased`}
       >
-        <main className="relative">
+        <main className="relative h-screen">
         <Navbar />
         {children}
         <Footer />
-
         </main>
       </body>
     </html>
