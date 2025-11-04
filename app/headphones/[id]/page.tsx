@@ -4,6 +4,7 @@ import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import CategoryCards from "@/components/CategoryCards";
 import BestAudioSection from "@/components/BestAudioSection";
+import Link from "next/link";
 
 const products = [
   {
@@ -21,7 +22,29 @@ const products = [
       { quantity: 1, item: "3.5mm Audio Cable" },
       { quantity: 1, item: "Travel Bag" },
     ],
-    image: "/images/xx99-mark-two.png",
+    image: "/assets/product-xx99-mark-two-headphones/desktop/image-product.jpg",
+    gallery: [
+      "/assets/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg",
+      "/assets/product-xx99-mark-two-headphones/desktop/image-gallery-2.jpg",
+      "/assets/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg",
+    ],
+    others: [
+      {
+        name: "XX99 Mark I",
+        image: "/assets/shared/desktop/image-xx99-mark-one-headphones.jpg",
+        link: "/headphones/xx99-mark-one",
+      },
+      {
+        name: "XX59",
+        image: "/assets/shared/desktop/image-xx59-headphones.jpg",
+        link: "/headphones/xx59",
+      },
+      {
+        name: "ZX9 Speaker",
+        image: "/assets/shared/desktop/image-zx9-speaker.jpg",
+        link: "/speakers/zx9",
+      },
+    ],
   },
   {
     id: "xx99-mark-one",
@@ -36,7 +59,29 @@ const products = [
       { quantity: 1, item: "User Manual" },
       { quantity: 1, item: "3.5mm Audio Cable" },
     ],
-    image: "/images/xx99-mark-one.png",
+    image: "/assets/product-xx99-mark-one-headphones/desktop/image-product.jpg",
+    gallery: [
+      "/assets/product-xx99-mark-one-headphones/desktop/image-gallery-1.jpg",
+      "/assets/product-xx99-mark-one-headphones/desktop/image-gallery-2.jpg",
+      "/assets/product-xx99-mark-one-headphones/desktop/image-gallery-3.jpg",
+    ],
+    others: [
+      {
+        name: "XX99 Mark II",
+        image: "/assets/shared/desktop/image-xx99-mark-two-headphones.jpg",
+        link: "/headphones/xx99-mark-two",
+      },
+      {
+        name: "XX59",
+        image: "/assets/shared/desktop/image-xx59-headphones.jpg",
+        link: "/headphones/xx59",
+      },
+      {
+        name: "ZX7 Speaker",
+        image: "/assets/shared/desktop/image-zx7-speaker.jpg",
+        link: "/speakers/zx7",
+      },
+    ],
   },
   {
     id: "xx59",
@@ -51,7 +96,29 @@ const products = [
       { quantity: 1, item: "User Manual" },
       { quantity: 1, item: "USB-C Charging Cable" },
     ],
-    image: "/images/xx59.png",
+    image: "/assets/product-xx59-headphones/desktop/image-product.jpg",
+    gallery: [
+      "/assets/product-xx59-headphones/desktop/image-gallery-1.jpg",
+      "/assets/product-xx59-headphones/desktop/image-gallery-2.jpg",
+      "/assets/product-xx59-headphones/desktop/image-gallery-3.jpg",
+    ],
+    others: [
+      {
+        name: "XX99 Mark I",
+        image: "/assets/shared/desktop/image-xx99-mark-one-headphones.jpg",
+        link: "/headphones/xx99-mark-one",
+      },
+      {
+        name: "XX99 Mark II",
+        image: "/assets/shared/desktop/image-xx99-mark-two-headphones.jpg",
+        link: "/headphones/xx99-mark-two",
+      },
+      {
+        name: "ZX9 Speaker",
+        image: "/assets/shared/desktop/image-zx9-speaker.jpg",
+        link: "/speakers/zx9",
+      },
+    ],
   },
 ];
 
@@ -140,7 +207,60 @@ export default function ProductDetailPage() {
         </div>
       </div>
 
-      {/* Reusable sections */}
+      {/* Product Gallery */}
+      <div className="grid md:grid-cols-2 gap-6">
+        <div className="flex flex-col gap-6">
+          <Image
+            src={product.gallery[0]}
+            alt="Gallery 1"
+            width={400}
+            height={400}
+            className="rounded-lg"
+          />
+          <Image
+            src={product.gallery[1]}
+            alt="Gallery 2"
+            width={400}
+            height={400}
+            className="rounded-lg"
+          />
+        </div>
+        <Image
+          src={product.gallery[2]}
+          alt="Gallery 3"
+          width={800}
+          height={800}
+          className="rounded-lg w-full h-full object-cover"
+        />
+      </div>
+
+      {/* You May Also Like */}
+      <section className="text-center space-y-10">
+        <h2 className="text-2xl font-bold uppercase">You May Also Like</h2>
+        <div className="grid md:grid-cols-3 gap-10">
+          {product.others.map((item) => (
+            <div key={item.name} className="space-y-6">
+              <div className="bg-[#F1F1F1] rounded-lg flex justify-center p-10">
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  width={250}
+                  height={250}
+                  className="object-contain"
+                />
+              </div>
+              <h3 className="text-lg font-bold uppercase">{item.name}</h3>
+              <Link
+                href={item.link}
+                className="bg-[#D87D4A] text-white px-6 py-3 uppercase tracking-wider hover:bg-[#FBAF85] transition inline-block"
+              >
+                See Product
+              </Link>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <CategoryCards />
       <BestAudioSection />
     </main>

@@ -1,12 +1,8 @@
 "use client";
 import BestAudioSection from "@/components/BestAudioSection";
 import CategoryCards from "@/components/CategoryCards";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-// import CategoryCards from "../components/CategoryCards";
-// import BringingBestSection from "../components/BringingBestSection";
-// import { Button } from "../components/Button";
 
 const headphones = [
   {
@@ -14,7 +10,7 @@ const headphones = [
     name: "XX99 Mark II Headphones",
     description:
       "The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.",
-    image: "/images/xx99-mark-two.png",
+    image: "/assets/product-xx99-mark-two-headphones/desktop/image-product.jpg",
     new: true,
   },
   {
@@ -22,14 +18,14 @@ const headphones = [
     name: "XX99 Mark I Headphones",
     description:
       "As the gold standard for headphones, the classic XX99 Mark I offers detailed and accurate sound reproduction for audiophiles, mixing engineers, and music aficionados alike.",
-    image: "/images/xx99-mark-one.png",
+    image: "/assets/product-xx99-mark-one-headphones/desktop/image-product.jpg",
   },
   {
     id: "xx59",
     name: "XX59 Headphones",
     description:
       "Enjoy your audio almost anywhere and customize it to your specific tastes with the XX59 headphones. The stylish yet durable versatile wireless headset is a brilliant companion at home or on the move.",
-    image: "/images/xx59.png",
+    image: "/assets/product-xx59-headphones/desktop/image-product.jpg",
   },
 ];
 
@@ -73,7 +69,9 @@ const Headphones = () => {
                 {product.description}
               </p>
               <Link href={`/headphones/${product.id}`}>
-                <Button variant="ghost">See Product</Button>
+                 <button className="self-center lg:self-start bg-[#D87D4A] hover:bg-[#fbaf85] transition px-8 py-3 text-sm tracking-wider uppercase text-white font-semibold cursor-pointer">
+                  See Product
+                </button>
               </Link>
             </div>
           </div>

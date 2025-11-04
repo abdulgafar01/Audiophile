@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { ShoppingCart } from "lucide-react";
+import { useState } from "react";
+import CartModal from "./CartModal";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -11,9 +13,10 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+  const [showCart, setShowCart] = useState(false);
   return (
     <header className="bg-black text-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-6 flex items-center justify-between border-b border-white/10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-16 py-6 flex items-center justify-between border-b border-white/10">
         {/* Logo */}
         <Link href="/" className="text-xl font-extrabold tracking-tight uppercase">
           audiophile
@@ -35,11 +38,14 @@ export default function Navbar() {
         {/* Cart Icon */}
         <button
           aria-label="Shopping Cart"
-          className="hover:text-orange-500 transition"
+          className="hover:text-orange-500 transition cursor-pointer"
+          onClick={() => setShowCart(!showCart)}
         >
           <ShoppingCart size={22} />
         </button>
       </div>
+
+      {showCart && <CartModal onClose={() => setShowCart(false)} />}
     </header>
   );
 }

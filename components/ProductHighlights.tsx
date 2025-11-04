@@ -7,8 +7,10 @@ export default function ProductHighlights() {
   return (
     <section className="w-full max-w-7xl mx-auto px-6 py-20 space-y-12 font-manrope">
       {/* ZX9 Speaker */}
-      <div className="relative flex flex-col items-center text-center bg-[#D87D4A] rounded-lg overflow-hidden py-16 px-8 md:flex-row md:justify-between md:text-left">
+      <div className="relative flex flex-col max-h-[560px] items-center text-center bg-[#D87D4A] rounded-lg overflow-hidden py-16 px-8 md:flex-row md:justify-between md:text-left">
         {/* Speaker Image */}
+
+
         <div className="relative w-[172px] h-[207px] md:w-[410px] md:h-[493px]">
           <Image
             src="/assets/home/desktop/image-speaker-zx9.png"
@@ -17,6 +19,7 @@ export default function ProductHighlights() {
             className="object-contain"
           />
         </div>
+        
 
         {/* Text Content */}
         <div className="text-white max-w-sm mt-10 md:mt-0 md:mr-20">
@@ -37,13 +40,13 @@ export default function ProductHighlights() {
       </div>
 
       {/* ZX7 Speaker */}
-      <div className="relative rounded-lg overflow-hidden bg-[#F1F1F1] px-10 py-24 flex flex-col justify-center md:flex-row md:items-center">
+      <div className="relative rounded-lg overflow-hidden bg-[#F1F1F1] px-10 py-24 flex flex-col justify-between md:flex-row md:items-center">
         <Image
           src="/assets/home/desktop/image-speaker-zx7.jpg"
           alt="ZX7 Speaker"
           width={700}
           height={320}
-          className="absolute inset-0 w-full h-full object-cover opacity-60"
+          className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="relative z-10 max-w-sm md:ml-20">
           <h3 className="text-3xl font-bold uppercase mb-6">ZX7 Speaker</h3>
@@ -68,11 +71,11 @@ export default function ProductHighlights() {
           />
         </div>
 
-        <div className="bg-[#F1F1F1] rounded-lg flex flex-col justify-center px-10 py-16">
+        <div className="bg-[#F1F1F1] rounded-lg flex flex-col justify-center p-26">
           <h3 className="text-2xl font-bold uppercase mb-6">YX1 Earphones</h3>
           <Link
-            href="/product/yx1-earphones"
-            className="border border-black text-black uppercase text-sm tracking-wider px-6 py-3 rounded hover:bg-black hover:text-white transition"
+            href="/earphones"
+            className="self-start border border-black text-black uppercase text-sm tracking-wider px-6 py-3 rounded hover:bg-black hover:text-white transition"
           >
             See Product
           </Link>
