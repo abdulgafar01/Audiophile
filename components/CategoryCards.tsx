@@ -24,7 +24,7 @@ const categories = [
 
 export default function CategoryCards() {
   return (
-    <section className="w-full max-w-7xl mx-auto px-6 py-20 grid gap-16 md:gap-10 items-center md:grid-cols-3 font-manrope mt-28">
+    <section className="w-full max-w-6xl mx-auto px-6 py-12 grid gap-16 md:gap-10 items-center md:grid-cols-3 font-manrope mt-28">
       {categories.map((category) => (
         <div
           key={category.name}

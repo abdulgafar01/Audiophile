@@ -27,7 +27,7 @@ export default function RootLayout({
         className={`${manrope.variable} bg-white text-black antialiased`}
       >
         <CartProvider>
-        <main className="relative h-screen">
+        <main>
         <Navbar />
         {children}
         <Footer />

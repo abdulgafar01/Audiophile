@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function ProductHighlights() {
   return (
-    <section className="w-full max-w-7xl mx-auto px-6 py-20 space-y-12 font-manrope">
+    <section className="w-full max-w-6xl mx-auto px-6 py-12 space-y-12 font-manrope">
       {/* ZX9 Speaker */}
       <div className="relative flex flex-col max-h-[560px] items-center text-center bg-[#D87D4A] rounded-lg overflow-hidden py-16 px-8 md:flex-row md:justify-between md:text-left">
         {/* Speaker Image */}

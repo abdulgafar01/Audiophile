@@ -1,11 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import { RevealFromLeft } from "./Reveal";
 
 export default function BestAudioSection() {
   return (
-    <section className="w-full max-w-7xl mx-auto px-6 py-28 grid gap-12 md:grid-cols-2 items-center font-manrope">
+    <section className="w-full max-w-6xl mx-auto px-6 py-28 grid gap-12 md:grid-cols-2 items-center font-manrope">
       {/* Text Content */}
+      <RevealFromLeft>
       <div className="text-center md:text-left md:w-[445px] w-[350px]">
         <h2 className="text-4xl md:text-5xl font-bold uppercase leading-tight mb-8">
           Bringing You the <span className="text-[#D87D4A]">Best</span> Audio Gear
@@ -19,6 +21,8 @@ export default function BestAudioSection() {
           buy your portable audio equipment.
         </p>
       </div>
+
+      </RevealFromLeft>
 
       {/* Image */}
       <div className="rounded-lg overflow-hidden">
