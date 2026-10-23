@@ -1,10 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import CategoryCards from "@/components/CategoryCards";
 import BestAudioSection from "@/components/BestAudioSection";
 import Link from "next/link";
+import { useCart } from "@/components/CartContext";
 
 const earphones = [
   {
@@ -54,8 +56,27 @@ const earphones = [
 export default function EarphoneDetailPage() {
   const { id } = useParams();
   const router = useRouter();
+  const { addToCart } = useCart();
+  const [quantity, setQuantity] = useState(1);
 
   const product = earphones.find((p) => p.id === id);
+
+  const changeQuantity = (amount: number) => {
+    setQuantity((prev) => Math.max(1, prev + amount));
+  };
+
+  const handleAddToCart = () => {
+    if (!product) return;
+
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      quantity,
+      image: product.image,
+    });
+    setQuantity(1);
+  };
 
   if (!product) {
     return (
@@ -102,11 +123,30 @@ export default function EarphoneDetailPage() {
 
           <div className="flex gap-4 items-center">
             <div className="bg-[#F1F1F1] px-4 py-2 flex gap-6 items-center">
-              <button className="text-black/40">-</button>
-              <span className="font-semibold">1</span>
-              <button className="text-black/40">+</button>
+              <button
+                type="button"
+                onClick={() => changeQuantity(-1)}
+                disabled={quantity === 1}
+                className="text-black/40 disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer"
+                aria-label="Decrease quantity"
+              >
+                -
+              </button>
+              <span className="font-semibold min-w-4 text-center">{quantity}</span>
+              <button
+                type="button"
+                onClick={() => changeQuantity(1)}
+                className="text-black/40 cursor-pointer"
+                aria-label="Increase quantity"
+              >
+                +
+              </button>
             </div>
-            <button className="bg-[#D87D4A] text-white px-6 py-3 uppercase tracking-wider hover:bg-[#FBAF85] transition">
+            <button
+              type="button"
+              onClick={handleAddToCart}
+              className="bg-[#D87D4A] text-white px-6 py-3 uppercase tracking-wider hover:bg-[#FBAF85] transition cursor-pointer"
+            >
               Add to Cart
             </button>
           </div>

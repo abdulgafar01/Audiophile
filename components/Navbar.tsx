@@ -18,7 +18,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 bg-[#0E0E0E]/95 text-white backdrop-blur-sm">
+    <header className="sticky left-0 right-0 top-0 z-50 bg-black text-white backdrop-blur-sm">
       <div className="max-w-5xl mx-auto  py-8 flex items-center justify-between border-b border-white/20">
         {/* Logo */}
         <Link href="/" className="text-xl font-extrabold tracking-tight uppercase">

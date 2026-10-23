@@ -62,7 +62,7 @@ export default function SpeakersPage() {
               <h2 className="text-3xl font-bold uppercase">{product.name}</h2>
               <p className="text-black/60">{product.description}</p>
               <Link href={`/speakers/${product.id}`}>
-                <button className="bg-[#D87D4A] text-white px-6 py-3 uppercase tracking-wider hover:bg-[#FBAF85] transition">
+                <button className="bg-[#D87D4A] text-white px-6 py-3 uppercase tracking-wider hover:bg-[#FBAF85] cursor-pointer transition">
                   See Product
                 </button>
               </Link>
